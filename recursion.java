@@ -9,6 +9,7 @@ public class recursion{
 
     */
     public static double sqrt(double n, double tolerance){
+      return checkSquare(n, n / 2, tolerance);
 
     }
 
@@ -25,7 +26,7 @@ public class recursion{
         return 0.0;
       }
       if(Math.abs(num - (guess * guess) <= off)){
-        return g;
+        return guess;
       }
       else{
         guess = ((num / guess) + guess) / 2;
@@ -42,5 +43,6 @@ public class recursion{
 
   public static void main(String[] args){
     System.out.println(checkSquare(4, 1, .005));
+    System.out.println(sqrt(4, .005));
   }
 }
