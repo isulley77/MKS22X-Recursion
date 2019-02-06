@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class recursion{
     /*You may write additional private methods */
 
@@ -16,6 +18,20 @@ public class recursion{
      *fib(5) = 5
      *precondition: n is non-negative
      */
+
+    public static double checkSquare(double num, double guess, double off){
+
+      if(num == 0){
+        return 0.0;
+      }
+      if(Math.abs(num - (guess * guess) <= off)){
+        return g;
+      }
+      else{
+        guess = ((num / guess) + guess) / 2;
+        return checkSquare(num, guess, off);
+      }
+    }
     public static int fib(int n){
 
     }
@@ -24,4 +40,7 @@ public class recursion{
     public static ArrayList<Integer> makeAllSums(int n){
     }
 
+  public static void main(String[] args){
+    System.out.println(checkSquare(4, 1, .005));
+  }
 }
