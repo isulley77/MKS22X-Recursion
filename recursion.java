@@ -54,11 +54,25 @@ public class recursion{
     }
     /*As Per classwork*/
     public static ArrayList<Integer> makeAllSums(int n){
+      ArrayList<Integer> sums = new ArrayList<Integer>(0);
+      makeAllSums(n, 0, nums);
+      return nums;
+    }
+
+    public static void makeAllSums(int n, int total, ArrayList<Integer> sums){
+      if(n == 0){
+        sums.add(total);
+      }
+      else{
+        makeAllSums(n - 1, n + total, sums);
+        makeAllSums(n - 1, total, sums);
+      }
     }
 
   public static void main(String[] args){
     System.out.println(checkSquare(4, 1, .005));
     System.out.println(sqrt(4, .005));
-    System.out.printls(fib(5));
+    System.out.println(fib(5));
+    System.out.println(makeAllSums(3));
   }
 }
