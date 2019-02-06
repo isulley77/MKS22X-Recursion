@@ -13,12 +13,6 @@ public class recursion{
 
     }
 
-    /*Recursively find the n'th fibbonaci number in linear time
-     *fib(0) = 0
-     *fib(1) = 1
-     *fib(5) = 5
-     *precondition: n is non-negative
-     */
 
     public static double checkSquare(double num, double guess, double off){
 
@@ -33,10 +27,31 @@ public class recursion{
         return checkSquare(num, guess, off);
       }
     }
-    public static int fib(int n){
 
+    /*Recursively find the n'th fibbonaci number in linear time
+     *fib(0) = 0
+     *fib(1) = 1
+     *fib(5) = 5
+     *precondition: n is non-negative
+     */
+
+    public static int fib(int n){
+      return fib(n, 0, 1);
     }
 
+
+    public static int fib(int n, int previous, int total){
+      if(n == 0){
+        return 0;
+      }
+      if(n == 1){
+        return total;
+      }
+      else{
+        fib(n - 1, total, previous + total);
+      }
+
+    }
     /*As Per classwork*/
     public static ArrayList<Integer> makeAllSums(int n){
     }
@@ -44,5 +59,6 @@ public class recursion{
   public static void main(String[] args){
     System.out.println(checkSquare(4, 1, .005));
     System.out.println(sqrt(4, .005));
+    System.out.printls(fib(5));
   }
 }
